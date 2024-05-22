@@ -127,20 +127,20 @@ RUN set -eux; \
     version='6.5.3'; \
     sha1='8e4950d39990a2c200a7745d44d32b176baa5ac5'; \
     \
-    curl -o wordpress.tar.gz -fL "https://wordpress.org/wordpress-$version.tar.gz"; \
-    echo "$sha1 *wordpress.tar.gz" | sha1sum -c -; \
+    curl -o latest.tar.gz -fL "https://wordpress.org/latest.tar.gz"; \
+    echo "$sha1 *latest.tar.gz" | sha1sum -c -; \
     \
-    tar -xzf wordpress.tar.gz; \
-    rm wordpress.tar.gz; \
+    tar -xzf latest.tar.gz; \
+    rm latest.tar.gz; \
     #cp -r wordpress/* .
-    cp -r wordpress/* /var/www/html/; \
+    mv wordpress/* /var/www/html/; \
     rm -rf wordpress
 
 #COPY --chown=www-data:www-data ./ /wordpress 
 #COPY --chown=www-data:www-data ./wordpress /var/www/html
-RUN chown -R www-data:www-data /var/www/html/
+RUN chown -R www-data:www-data /var/www/html/wordpress/ 
+RUN chmod -R 755 /var/www/html/wordpress/
 # set Apache DocumentRoot to /var/www/html
-RUN sed -i 's|/var/www/html|/var/www/html|g' /etc/apache2/sites-available/000-default.conf
 
 VOLUME /var/www/html/
 
