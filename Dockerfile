@@ -136,10 +136,10 @@ RUN set -eux; \
     mv wordpress/* /var/www/html/; \
     rm -rf wordpress
 
-#COPY --chown=www-data:www-data ./ /wordpress 
-#COPY --chown=www-data:www-data ./wordpress /var/www/html
-RUN chown -R www-data:www-data /var/www/html/wordpress/ 
-RUN chmod -R 755 /var/www/html/wordpress/
+COPY --chown=www-data:www-data ./ /var/www/html/wordpress 
+COPY --chown=www-data:www-data ./wordpress /var/www/html
+#RUN chown -R www-data:www-data /var/www/html/wordpress/ 
+#RUN chmod -R 755 /var/www/html/wordpress/
 # set Apache DocumentRoot to /var/www/html
 
 VOLUME /var/www/html/
