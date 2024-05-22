@@ -132,7 +132,7 @@ RUN set -eux; \
     \
     tar -xzf wordpress.tar.gz; \
     rm wordpress.tar.gz; \
-    //cp -r wordpress/* .
+    #cp -r wordpress/* .
     cp -r wordpress/* /var/www/html/; \
     rm -rf wordpress
 
