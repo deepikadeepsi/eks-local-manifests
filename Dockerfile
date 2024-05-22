@@ -136,8 +136,8 @@ RUN set -eux; \
     cp -r wordpress/* /var/www/html/; \
     rm -rf wordpress
 
-//COPY --chown=www-data:www-data ./ /wordpress 
-//COPY --chown=www-data:www-data ./wordpress /var/www/html
+#COPY --chown=www-data:www-data ./ /wordpress 
+#COPY --chown=www-data:www-data ./wordpress /var/www/html
 RUN chown -R www-data:www-data /var/www/html/
 # set Apache DocumentRoot to /var/www/html
 RUN sed -i 's|/var/www/html|/var/www/html|g' /etc/apache2/sites-available/000-default.conf
