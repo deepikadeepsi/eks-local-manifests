@@ -30,7 +30,7 @@ spec:
             - name: WORDPRESS_DB_PASSWORD
               value: admin@123  # Replace with your MySQL password
           ports:
-            - containerPort: 80
+            - containerPort: 8087
               name: wordpress
           volumeMounts:
             - name: wordpress-persistent-storage
