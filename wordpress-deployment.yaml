@@ -22,7 +22,7 @@ spec:
           name: wordpress
           env:
             - name: WORDPRESS_DB_HOST
-              value: my-release-mysql.default.svc.cluster.local
+              value: my-release-mysql-0.default.svc.cluster.local
             - name: WORDPRESS_DB_NAME
               value: wordpress
             - name: WORDPRESS_DB_USER
