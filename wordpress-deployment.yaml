@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         #- image: wordpress:4.8-apache
-        - image: deepsi/deepsi-wp:latest
+        - image: deepsi/local:latest
           name: wordpress
           env:
             - name: WORDPRESS_DB_HOST
