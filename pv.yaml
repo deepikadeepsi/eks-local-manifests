@@ -8,8 +8,11 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  hostPath:
-    path: /mnt/data  # Update with the path on your host machine
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: eks-sc
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: vol-0b99818d75b5c90ad
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
